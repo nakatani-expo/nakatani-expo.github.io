@@ -7,144 +7,189 @@
 <meta name="description" content="国際展示会に出展する中小企業の社長向けに、海外の来場者に名前で検索されたとき信用が伝わる英語のLinkedInプロフィールを、会期前に整えます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1c2430;
-    --sub: #4f5b6b;
-    --line: #dfe3e8;
-    --bg: #fbfaf7;
-    --panel: #ffffff;
-    --navy: #1f3a5f;
-    --accent: #b5562b;
-    --soft: #eef2f6;
+    --paper: #ffffff;
+    --mist: #f1f3f5;
+    --rule: #d5dae1;
+    --ink: #1a2233;
+    --sub: #536074;
+    --ai: #233a6e;      /* 藍 */
+    --tape: #f2c230;    /* 会場の床サイン */
+    --focus: #f2c230;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--paper);
     color: var(--ink);
-    font-family: "Noto Sans JP", system-ui, sans-serif;
+    font-family: "BIZ UDPGothic", system-ui, sans-serif;
     font-size: 16px;
-    line-height: 1.85;
-    letter-spacing: 0.02em;
+    line-height: 1.9;
   }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
-  header.top {
-    border-bottom: 1px solid var(--line);
-    background: var(--panel);
-  }
+  a { color: var(--ai); }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .measure > * { max-width: 660px; }
+  h1, h2, .lead { word-break: auto-phrase; }
+
+  /* header */
+  header.top { border-bottom: 1px solid var(--rule); }
   header.top .wrap {
     display: flex; justify-content: space-between; align-items: center;
-    padding-top: 14px; padding-bottom: 14px; gap: 12px;
+    gap: 12px; padding-top: 14px; padding-bottom: 14px;
   }
-  .brand { font-weight: 700; color: var(--navy); font-size: 15px; }
-  .brand small { display: block; font-weight: 400; color: var(--sub); font-size: 12px; }
+  .brand { font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.5; }
+  .brand span { display: block; font-weight: 400; font-size: 12px; color: var(--sub); }
   .btn {
-    display: inline-block; background: var(--navy); color: #fff; text-decoration: none;
-    padding: 12px 22px; border-radius: 6px; font-weight: 700; font-size: 15px;
+    display: inline-block; background: var(--ai); color: #fff; text-decoration: none;
+    padding: 14px 26px; border-radius: 4px; font-weight: 700; font-size: 16px; line-height: 1.4;
   }
-  .btn:hover { background: #16304f; }
-  .btn.small { padding: 8px 14px; font-size: 13px; white-space: nowrap; }
+  .btn:hover { background: #1a2d57; }
+  .btn.small { padding: 9px 16px; font-size: 14px; white-space: nowrap; }
 
-  .hero { padding: 64px 0 56px; }
-  .eyebrow { color: var(--accent); font-weight: 700; font-size: 14px; margin: 0 0 12px; }
-  h1 {
-    font-family: "Noto Serif JP", serif; font-size: clamp(26px, 5vw, 38px);
-    line-height: 1.5; margin: 0 0 20px; color: var(--navy);
-  }
-  .lead { font-size: 17px; color: var(--sub); margin: 0 0 28px; }
+  /* hero */
+  .hero { padding: 72px 0 80px; overflow-x: clip; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  h1, h2 { font-family: "BIZ UDPMincho", serif; font-weight: 700; color: var(--ink); }
+  h1 { font-size: clamp(28px, 4.4vw, 42px); line-height: 1.55; margin: 0 0 24px; letter-spacing: 0.02em; }
+  .lead { font-size: 17px; color: var(--sub); margin: 0 0 32px; max-width: 34em; }
+  .hero .fine { font-size: 13px; color: var(--sub); margin-top: 14px; }
 
-  section { padding: 56px 0; border-top: 1px solid var(--line); }
-  h2 {
-    font-family: "Noto Serif JP", serif; font-size: clamp(21px, 3.6vw, 26px);
-    color: var(--navy); margin: 0 0 20px; line-height: 1.5;
+  /* 名刺と検索窓：このページの主役 */
+  .exchange { position: relative; padding: 8px 0 0; }
+  .meishi {
+    aspect-ratio: 91 / 55; width: 100%; max-width: 380px;
+    background: #fff; border: 1px solid var(--rule); border-radius: 2px;
+    box-shadow: 0 1px 0 var(--rule), 0 14px 30px -18px rgba(26, 34, 51, 0.45);
+    padding: 7% 8%; display: flex; flex-direction: column; justify-content: space-between;
+    transform: rotate(-2.5deg); margin-left: 4%;
   }
+  .meishi .co { font-size: 12px; color: var(--sub); line-height: 1.5; }
+  .meishi .who { line-height: 1.3; }
+  .meishi .role { font-size: 12px; color: var(--sub); }
+  .meishi .name { font-family: "BIZ UDPMincho", serif; font-size: 30px; font-weight: 700; letter-spacing: 0.18em; }
+  .meishi .addr { font-size: 10.5px; color: var(--sub); line-height: 1.6; }
+  .search {
+    position: relative; margin: -18px 0 0 0; max-width: 400px;
+    background: #fff; border: 2px solid var(--ink); border-radius: 999px;
+    padding: 11px 18px 11px 46px; font-size: 15px; line-height: 1.4;
+    box-shadow: 0 10px 24px -16px rgba(26, 34, 51, 0.5);
+  }
+  .search::before {
+    content: ""; position: absolute; left: 18px; top: 50%; width: 12px; height: 12px;
+    border: 2px solid var(--ink); border-radius: 50%; transform: translateY(-62%);
+  }
+  .search::after {
+    content: ""; position: absolute; left: 30px; top: 58%; width: 7px; height: 2px;
+    background: var(--ink); transform: rotate(45deg);
+  }
+  .search .caret { display: inline-block; width: 1px; height: 1em; background: var(--ink); vertical-align: -2px; margin-left: 2px; }
+  .result {
+    margin: 10px 0 0 22px; max-width: 360px; font-size: 13px; color: var(--sub);
+    border-left: 3px solid var(--tape); padding: 2px 0 2px 12px; line-height: 1.6;
+  }
+
+  /* sections */
+  section { padding: 72px 0; }
+  section.band { background: var(--mist); }
+  h2 { font-size: clamp(22px, 3.2vw, 28px); line-height: 1.55; margin: 0 0 24px; }
   p { margin: 0 0 16px; }
-
-  .scene { display: grid; gap: 12px; margin-top: 20px; }
-  .scene div {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-    padding: 14px 18px; display: flex; gap: 14px; align-items: baseline;
-  }
-  .scene b { color: var(--accent); font-size: 13px; white-space: nowrap; }
-
-  .offer {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
-    padding: 28px; margin-top: 8px;
-  }
-  .offer ul { margin: 0 0 20px; padding-left: 1.2em; }
-  .offer li { margin-bottom: 6px; }
-  .price {
-    background: var(--soft); border-radius: 8px; padding: 18px 20px; margin-top: 8px;
-  }
-  .price .now { font-size: 26px; font-weight: 700; color: var(--navy); }
-  .price .now span { font-size: 14px; font-weight: 500; color: var(--sub); }
-  .price .reg { color: var(--sub); font-size: 14px; }
   .note { font-size: 14px; color: var(--sub); }
 
-  ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: 12px; }
+  /* チェックリスト */
+  ul.check { list-style: none; padding: 0; margin: 0 0 20px; }
+  ul.check li {
+    position: relative; padding: 12px 0 12px 36px; border-bottom: 1px solid var(--rule);
+  }
+  ul.check li:first-child { border-top: 1px solid var(--rule); }
+  ul.check li::before {
+    content: ""; position: absolute; left: 2px; top: 19px; width: 16px; height: 16px;
+    border: 2px solid var(--ink); background: #fff;
+  }
+
+  /* 時系列 */
+  ol.timeline { list-style: none; margin: 28px 0 24px; padding: 0 0 0 22px; border-left: 2px solid var(--ink); }
+  ol.timeline li { position: relative; padding: 0 0 22px 18px; }
+  ol.timeline li:last-child { padding-bottom: 0; }
+  ol.timeline li::before {
+    content: ""; position: absolute; left: -31px; top: 8px; width: 14px; height: 14px;
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 50%;
+  }
+  ol.timeline li:last-child::before { background: var(--tape); }
+  ol.timeline b { display: block; font-size: 14px; color: var(--sub); font-weight: 700; line-height: 1.5; }
+
+  /* 見積書 */
+  .quote { background: #fff; border: 1px solid var(--rule); padding: 32px 36px; max-width: 760px; }
+  .quote h3 { font-family: "BIZ UDPMincho", serif; font-size: 18px; margin: 0 0 4px; }
+  .quote .meta { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  table.items { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.items td { padding: 10px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.items td:last-child { text-align: right; white-space: nowrap; padding-left: 16px; color: var(--sub); font-size: 14px; }
+  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 18px 0 4px; border-bottom: 3px double var(--ink); }
+  .total .label { font-weight: 700; }
+  .total .amount { text-align: right; }
+  .total .now { font-size: 30px; font-weight: 700; color: var(--ai); line-height: 1.3; }
+  .total .cond { display: block; font-size: 13px; color: var(--sub); }
+  .total .reg { display: block; font-size: 14px; color: var(--sub); }
+  .terms { margin: 20px 0 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); }
+  .terms li { margin-bottom: 6px; }
+
+  /* 進め方 */
+  ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
   ol.steps li {
-    counter-increment: s; background: var(--panel); border: 1px solid var(--line);
-    border-radius: 8px; padding: 14px 18px 14px 60px; position: relative;
+    counter-increment: s; position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid var(--rule);
   }
   ol.steps li::before {
-    content: counter(s); position: absolute; left: 18px; top: 14px;
-    width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: #fff;
-    font-weight: 700; font-size: 14px; display: grid; place-items: center; line-height: 1;
+    content: counter(s); position: absolute; left: 0; top: 13px;
+    font-family: "BIZ UDPMincho", serif; font-size: 24px; font-weight: 700; color: var(--ai); line-height: 1.3;
   }
-  .trust {
-    margin-top: 20px; border-left: 4px solid var(--accent); background: var(--panel);
-    padding: 14px 18px; border-radius: 0 8px 8px 0;
-  }
+  .trust { margin-top: 28px; padding: 18px 20px; background: #fff; border-left: 4px solid var(--tape); }
 
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
-  .card {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px;
-    font-size: 14px;
-  }
-  .card h3 { font-size: 13px; margin: 0 0 10px; color: var(--sub); font-weight: 700; }
-  .card.after h3 { color: var(--accent); }
-  .card .name { font-weight: 700; font-size: 15px; }
-  .card .headline { color: var(--sub); margin: 2px 0 10px; }
-  .card.after .headline { color: var(--ink); }
-  .card .about { color: var(--sub); }
-  .card.after .about { color: var(--ink); }
-  .ph { color: #9aa3ad; }
+  /* 前と後 */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); background: #fff; }
+  .compare > div { padding: 24px; }
+  .compare > div + div { border-left: 1px solid var(--rule); }
+  .compare h3 { font-size: 14px; color: var(--sub); margin: 0 0 12px; font-weight: 700; }
+  .compare .name { font-weight: 700; font-size: 17px; }
+  .compare .headline { color: var(--sub); margin: 4px 0 12px; font-size: 14px; line-height: 1.7; }
+  .compare .about { font-size: 14px; line-height: 1.8; }
+  .compare .empty { color: #8b95a3; font-size: 14px; }
+  .compare .after .headline { color: var(--ink); }
+  [lang="en"] { font-family: "BIZ UDPGothic", system-ui, sans-serif; }
 
-  ul.check { list-style: none; padding: 0; margin: 8px 0 16px; display: grid; gap: 10px; }
-  ul.check li {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-    padding: 12px 16px 12px 46px; position: relative;
-  }
-  ul.check li::before {
-    content: ""; position: absolute; left: 16px; top: 17px; width: 16px; height: 16px;
-    border: 2px solid var(--accent); border-radius: 3px;
-  }
-  .rules { margin: 14px 0 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); }
-  .rules li { margin-bottom: 4px; }
-  .later { display: grid; gap: 10px; margin: 8px 0 12px; padding: 0; list-style: none; }
-  .later li { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; }
+  ul.plain { padding-left: 1.2em; margin: 0 0 16px; }
+  ul.plain li { margin-bottom: 6px; }
 
-  dl.faq dt { font-weight: 700; margin-top: 18px; }
-  dl.faq dd { margin: 4px 0 0; color: var(--sub); }
+  dl.faq { margin: 0; }
+  dl.faq dt { font-weight: 700; margin-top: 24px; }
+  dl.faq dt:first-child { margin-top: 0; }
+  dl.faq dd { margin: 6px 0 0; color: var(--sub); }
 
-  .profile { display: grid; gap: 6px; }
-  .profile ul { margin: 6px 0 0; padding-left: 1.2em; }
-
-  .contact { text-align: center; background: var(--navy); color: #fff; }
+  .contact { background: var(--ai); color: #fff; }
   .contact h2 { color: #fff; }
-  .contact p { color: #d7dee8; }
-  .contact .btn { background: #fff; color: var(--navy); }
-  footer { padding: 24px 0 40px; font-size: 13px; color: var(--sub); text-align: center; }
+  .contact p { color: #d9e0ee; }
+  .contact .btn { background: #fff; color: var(--ai); }
+  .contact .btn:hover { background: var(--mist); }
+  .contact .mail { margin-top: 16px; font-size: 15px; color: #fff; }
 
-  @media (max-width: 640px) {
-    .hero { padding: 44px 0 40px; }
-    section { padding: 44px 0; }
+  footer { padding: 28px 0 44px; font-size: 13px; color: var(--sub); }
+
+  @media (max-width: 820px) {
+    .hero { padding: 48px 0 56px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 44px; }
+    .exchange { max-width: 400px; }
+    section { padding: 52px 0; }
+    .quote { padding: 22px 18px; }
     .compare { grid-template-columns: 1fr; }
-    .offer { padding: 20px; }
-    .scene div { flex-direction: column; gap: 2px; }
+    .compare > div + div { border-left: 0; border-top: 1px solid var(--rule); }
+  }
+  @media (max-width: 420px) {
+    .wrap { padding: 0 16px; }
+    .meishi .name { font-size: 24px; }
   }
 </style>
 </head>
@@ -152,21 +197,37 @@
 
 <header class="top">
   <div class="wrap">
-    <div class="brand">中谷 大地<small>展示会前の社長プロフィール英語整備</small></div>
+    <div class="brand">中谷 大地<span>展示会前の社長プロフィール英語整備</span></div>
     <a class="btn small" href="#contact">15分だけ相談</a>
   </div>
 </header>
 
 <main>
-  <div class="wrap hero">
-    <p class="eyebrow">国際展示会に出展する中小企業の社長へ</p>
-    <h1>展示会で出会った海外の相手は、<br>帰国後に社長のお名前を検索します。</h1>
-    <p class="lead">そのとき、御社の技術と社長ご本人の信用が英語で伝わる状態を、会期前に整えます。海外の方とのつながりが、名刺交換で終わらないように。</p>
-    <a class="btn" href="#contact">15分だけ、話を聞いてみる（無料）</a>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>展示会で出会った海外の相手は、帰国後に社長のお名前を検索します。</h1>
+        <p class="lead">そのとき、御社の技術と社長ご本人の信用が英語で伝わる状態を、会期前に整えます。国際展示会に出展する中小企業の社長に向けた、単発のサービスです。</p>
+        <a class="btn" href="#contact">15分だけ、話を聞いてみる（無料）</a>
+      </div>
+      <div class="exchange" aria-label="名刺交換のあと、海外の相手が社長の名前を英語で検索する様子（架空の例）">
+        <div class="meishi" aria-hidden="true">
+          <div class="co">株式会社〇〇精工</div>
+          <div class="who">
+            <div class="role">代表取締役</div>
+            <div class="name">山田 太郎</div>
+          </div>
+          <div class="addr">大阪府東大阪市〇〇町 1-2-3<br>TEL 06-0000-0000</div>
+        </div>
+        <div class="search" aria-hidden="true"><span lang="en">Taro Yamada ○○ Seiko</span><span class="caret"></span></div>
+        <p class="result">ここで何も出てこないと、「誰と話したのか」が相手の記憶から消えていきます。</p>
+        <p class="fine">※ 架空の人物・企業です。</p>
+      </div>
+    </div>
   </div>
 
-  <section>
-    <div class="wrap">
+  <section class="band">
+    <div class="wrap measure">
       <h2>こんなことはありませんか</h2>
       <ul class="check">
         <li>海外の来場者と名刺交換したのに、帰国後のメールに返信がない</li>
@@ -179,48 +240,53 @@
   </section>
 
   <section>
-    <div class="wrap">
+    <div class="wrap measure">
       <h2>名刺交換の「その後」で、話が止まっていませんか</h2>
-      <p>海外の来場者は、会期後に会った相手を調べ直します。英語サイトがあっても、<b>社長ご本人</b>の顔と経歴が見つからないと、「誰と話したのか」が残りません。</p>
-      <div class="scene">
-        <div><b>会期中</b>ブースで名刺交換。手応えはあった</div>
-        <div><b>帰国後</b>相手が社長のお名前を検索。LinkedInに情報がない、または日本語だけ</div>
-        <div><b>数週間後</b>メールを送っても返信が少ない。話がそこで止まる</div>
-      </div>
-      <p style="margin-top:20px">海外のビジネスでは、LinkedInが「英語の名刺」の役割を果たしています。会社ではなく<b>人と人</b>のつながりから、次の商談が始まります。</p>
+      <p>海外の来場者は、会期後に会った相手を調べ直します。英語サイトがあっても、社長ご本人の顔と経歴が見つからないと、印象が残りません。</p>
+      <ol class="timeline">
+        <li><b>会期中</b>ブースで名刺交換。手応えはあった</li>
+        <li><b>帰国後</b>相手が社長のお名前を検索。LinkedInに情報がない、または日本語だけ</li>
+        <li><b>数週間後</b>メールを送っても返信が少ない。話がそこで止まる</li>
+      </ol>
+      <p>海外のビジネスでは、LinkedInが英語の名刺の役割を果たしています。会社ではなく人と人のつながりから、次の商談が始まります。</p>
     </div>
   </section>
 
-  <section id="offer">
+  <section class="band" id="offer">
     <div class="wrap">
-      <h2>展示会前の「英語プロフィール整備」（単発）</h2>
-      <div class="offer">
-        <ul>
-          <li>英語のヘッドライン（肩書きと強みを一行で）</li>
-          <li>About（自己紹介）の英語文。日本語訳を添えてお渡しします</li>
-          <li>お名前の英語表記、職歴・会社紹介の英語化（主要なもの）</li>
-          <li>プロフィール写真・背景画像についての具体的なアドバイス</li>
-          <li>展示会の出展告知投稿 1本（英語原稿）</li>
-          <li>修正 1回</li>
-          <li>反映作業は、Zoomの画面共有で一緒に進めます</li>
-        </ul>
-        <div class="price">
-          <div class="now">9,800円 <span>サービス開始記念・先着3社</span></div>
-          <div class="reg">通常価格 29,800円</div>
+      <h2>展示会前の「英語プロフィール整備」</h2>
+      <div class="quote">
+        <h3>お見積り（単発・オンライン完結）</h3>
+        <div class="meta">納期の目安：お申し込みから7〜10日。会期に間に合うよう、日程から逆算して進めます。</div>
+        <table class="items">
+          <tr><td>英語のヘッドライン（肩書きと強みを一行で）</td><td>1式</td></tr>
+          <tr><td>About（自己紹介）の英語文。日本語訳を添えてお渡しします</td><td>1式</td></tr>
+          <tr><td>お名前の英語表記、職歴・会社紹介の英語化（主要なもの）</td><td>1式</td></tr>
+          <tr><td>プロフィール写真・背景画像についての具体的なアドバイス</td><td>1式</td></tr>
+          <tr><td>展示会の出展告知投稿（英語原稿）</td><td>1本</td></tr>
+          <tr><td>修正</td><td>1回</td></tr>
+          <tr><td>Zoomの画面共有で、プロフィールへの反映を一緒に進めます</td><td>1回</td></tr>
+        </table>
+        <div class="total">
+          <span class="label">合計（税込）</span>
+          <span class="amount">
+            <span class="now">9,800円</span>
+            <span class="cond">サービス開始記念・先着3社</span>
+            <span class="reg">通常価格 29,800円</span>
+          </span>
         </div>
-        <ul class="rules">
-          <li>納期の目安：お申し込みから7〜10日。展示会の会期に間に合うよう、日程から逆算して進めます</li>
+        <ul class="terms">
           <li>修正1回：初稿をお渡ししてから7日以内に、表現や内容の調整をまとめてお知らせください。2営業日以内に修正版をお返しします</li>
           <li>別の方向での全面的な書き直しは、修正の範囲外としてご相談させてください</li>
           <li>お支払いは、初稿をご確認いただいた後にご請求します</li>
+          <li>終了後、改善のために5分ほど感想を伺えれば幸いです（内容を公開することはありません）</li>
         </ul>
-        <p class="note" style="margin-top:14px">終了後、改善のために5分ほど感想を伺えれば幸いです（内容を公開することはありません）。</p>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
+    <div class="wrap measure">
       <h2>進め方</h2>
       <ol class="steps">
         <li>お問い合わせ。15分ほどで、展示会の日程と海外で伝えたいことを伺います</li>
@@ -236,32 +302,32 @@
     </div>
   </section>
 
-  <section>
+  <section class="band">
     <div class="wrap">
-      <h2>整える前と後（イメージ）</h2>
-      <p class="note">架空の精密加工メーカーの例です。実在の人物・企業ではありません。</p>
+      <h2>整える前と後</h2>
+      <p class="note">冒頭の名刺と同じ、架空の精密加工メーカーの例です。</p>
       <div class="compare">
-        <div class="card">
+        <div>
           <h3>整える前</h3>
           <div class="name">山田 太郎</div>
           <div class="headline">代表取締役 ／ 株式会社〇〇精工</div>
-          <div class="about ph">（自己紹介なし・写真なし・つながり数名）</div>
+          <div class="empty">自己紹介なし。写真なし。つながりは数名。</div>
         </div>
-        <div class="card after">
+        <div class="after">
           <h3>整えた後</h3>
-          <div class="name">Taro Yamada</div>
-          <div class="headline">President, ○○ Seiko | Micron-level precision machining for semiconductor equipment | Osaka, Japan</div>
-          <div class="about">Second-generation owner of a 40-year-old machining shop. Our 18-person team makes parts that hold ±2 µm for chip-making tools. Met at SEMICON Japan? Let's stay in touch.</div>
+          <div class="name" lang="en">Taro Yamada</div>
+          <div class="headline" lang="en">President, ○○ Seiko | Micron-level precision machining for semiconductor equipment | Osaka, Japan</div>
+          <div class="about" lang="en">Second-generation owner of a 40-year-old machining shop. Our 18-person team makes parts that hold ±2 µm for chip-making tools. Met at SEMICON Japan? Let's stay in touch.</div>
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
-      <h2>会期後も、海外の相手に思い出してもらうために（任意）</h2>
+    <div class="wrap measure">
+      <h2>会期後も、思い出してもらうために（任意）</h2>
       <p>プロフィールを整えた後、ご希望があれば継続の広報もお手伝いします。単発だけのご依頼で、もちろん問題ありません。</p>
-      <ul class="later">
+      <ul class="plain">
         <li>会期後のフォロー投稿（展示会のお礼、紹介した技術の補足）</li>
         <li>新製品・技術発表・登壇のたびの英語での発信</li>
         <li>会社ページの運用（LinkedInの公式な管理者権限の範囲で）</li>
@@ -270,22 +336,22 @@
     </div>
   </section>
 
-  <section>
-    <div class="wrap profile">
+  <section class="band">
+    <div class="wrap measure">
       <h2>担当者について</h2>
       <p><b>中谷 大地</b>（なかたに だいち）</p>
-      <ul>
+      <ul class="plain">
         <li>外資系理系メーカーのケミスト。分析業務のほか、技術文書の翻訳や情報発信に携わる</li>
         <li>展示会では出展側として、海外からの来場者対応を経験</li>
         <li>CBDスタートアップでR&amp;Dと広報を担当</li>
         <li>米国の大学を卒業。英語での技術コミュニケーションに対応</li>
       </ul>
-      <p style="margin-top:12px">技術の中身を理解したうえで、海外の相手に伝わる英語に置き換えることを大切にしています。</p>
+      <p>技術の中身を理解したうえで、海外の相手に伝わる英語に置き換えることを大切にしています。</p>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
+    <div class="wrap measure">
       <h2>よくあるご質問</h2>
       <dl class="faq">
         <dt>LinkedInのアカウントを持っていません。</dt>
@@ -305,11 +371,11 @@
   </section>
 
   <section class="contact" id="contact">
-    <div class="wrap">
+    <div class="wrap measure">
       <h2>まずは、展示会の日程を教えてください</h2>
       <p>展示会名と会期をメールでお知らせください。15分のオンライン相談の候補日をお返しします。ご相談は無料で、間に合うかどうかも含めてお答えします。</p>
       <a class="btn" href="mailto:daichi.nakatani.expo@gmail.com?subject=%E5%B1%95%E7%A4%BA%E4%BC%9A%E5%89%8D%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E6%95%B4%E5%82%99%E3%81%AE%E7%9B%B8%E8%AB%87">15分だけ、話を聞いてみる（無料）</a>
-      <p style="margin-top:14px;font-size:14px">daichi.nakatani.expo@gmail.com</p>
+      <p class="mail">daichi.nakatani.expo@gmail.com</p>
     </div>
   </section>
 </main>
