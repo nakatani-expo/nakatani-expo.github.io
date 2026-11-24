@@ -161,6 +161,9 @@
   .compare .after .headline { color: var(--ink); }
   [lang="en"] { font-family: "BIZ UDPGothic", system-ui, sans-serif; }
 
+  .person { display: flex; gap: 20px; align-items: center; margin-bottom: 16px; }
+  .person img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--rule); flex: none; }
+  .person p { margin: 0; }
   ul.plain { padding-left: 1.2em; margin: 0 0 16px; }
   ul.plain li { margin-bottom: 6px; }
 
@@ -339,7 +342,10 @@
   <section class="band">
     <div class="wrap measure">
       <h2>担当者について</h2>
-      <p><b>中谷 大地</b>（なかたに だいち）</p>
+      <div class="person">
+        <img src="daichi.jpg" width="112" height="112" alt="中谷 大地の顔写真">
+        <p><b>中谷 大地</b>（なかたに だいち）<br><span class="note" lang="en">Daichi Nakatani</span></p>
+      </div>
       <ul class="plain">
         <li>外資系理系メーカーのケミスト。分析業務のほか、技術文書の翻訳や情報発信に携わる</li>
         <li>展示会では出展側として、海外からの来場者対応を経験</li>
