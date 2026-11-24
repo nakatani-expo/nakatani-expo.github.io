@@ -28,6 +28,8 @@
     font-family: "BIZ UDPGothic", system-ui, sans-serif; font-size: 16px; line-height: 1.85;
   }
   img { max-width: 100%; display: block; }
+  img.avatar { object-fit: cover; padding: 0; background: #dfe5f1; }
+  p, li, dd, .lead, .kicker, .source, .sample, .ja, .when, summary { word-break: auto-phrase; line-break: strict; }
   a { color: var(--ai); }
   a:focus-visible, .btn:focus-visible, summary:focus-visible { outline: 3px solid var(--tape); outline-offset: 3px; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -273,7 +275,7 @@
   <div class="wrap hero">
     <div>
       <h1>展示会で出会った海外の相手は、帰国後に社長のお名前を検索します。</h1>
-      <p class="lead">そのとき見つかる「英語の社長プロフィール」を、会期前に整えます。国際展示会に出展する中小企業の社長に向けた、単発のサービスです。</p>
+      <p class="lead">そのとき見つかる「英語の社長プロフィール」を、会期前に整えます。<br>国際展示会に出展する中小企業の社長に向けた、単発のサービスです。</p>
       <div class="ctas">
         <a class="btn" href="#contact">15分だけ、話を聞いてみる（無料）</a>
         <a class="btn ghost" href="#offer">中身と料金を見る</a>
@@ -289,7 +291,7 @@
       </div>
       <div class="pcard" aria-hidden="true">
         <div class="banner"></div>
-        <div class="avatar">TY</div>
+        <img class="avatar" src="taro.jpg" width="72" height="72" alt="">
         <div class="body" lang="en">
           <div class="nm">Taro Yamada</div>
           <div class="hl">President, ○○ Seiko | Micron-level precision machining for semiconductor equipment</div>
@@ -300,7 +302,7 @@
     </div>
     <div class="arrow-note">
         <svg width="34" height="20" viewBox="0 0 34 20" fill="none" aria-hidden="true"><path d="M2 16 C 10 4, 22 4, 30 10" stroke="#f2c230" stroke-width="2.5" stroke-linecap="round"/><path d="M24 4 L31 10 L23 14" stroke="#f2c230" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        名刺の先に、英語の受け皿を。<br>※ 架空の人物・企業の例です
+        名刺の先に、英語の受け皿を<br>※ 架空の人物・企業の例です
       </div>
     </div>
   </div>
@@ -338,7 +340,7 @@
         </div>
         <div class="pain">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="15" r="7" stroke="#233a6e" stroke-width="2.4" stroke-dasharray="4 3"/><path d="M8 34 c2-7 8-10 12-10 s10 3 12 10" stroke="#233a6e" stroke-width="2.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg>
-          <p>LinkedInは登録しただけ。写真も自己紹介もないまま</p>
+          <p>LinkedInは登録しただけ　写真も自己紹介もないまま</p>
         </div>
         <div class="pain">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="5" y="7" width="30" height="24" rx="2" stroke="#233a6e" stroke-width="2.4"/><path d="M5 13 H35" stroke="#233a6e" stroke-width="2.4"/><text x="11" y="27" font-size="10" font-weight="700" fill="#233a6e" font-family="sans-serif">EN</text><circle cx="29" cy="24" r="3" stroke="#f2c230" stroke-width="2.4"/></svg>
@@ -355,28 +357,28 @@
   <section>
     <div class="wrap">
       <h2>名刺交換の「その後」で、話が止まる理由</h2>
-      <p class="kicker">海外のビジネスでは、LinkedInが英語の名刺の役割を果たしています。会社ではなく人と人のつながりから、次の商談が始まります。</p>
+      <p class="kicker">海外のビジネスでは、LinkedInが英語の名刺の役割を果たしています。<br>会社ではなく人と人のつながりから、次の商談が始まります。</p>
       <div class="flow">
         <div class="frame">
           <div class="scene-ill" aria-hidden="true">
             <svg width="150" height="90" viewBox="0 0 150 90" fill="none"><rect x="10" y="20" width="130" height="60" rx="2" stroke="#233a6e" stroke-width="2.4"/><rect x="10" y="20" width="130" height="14" fill="#233a6e"/><rect x="44" y="50" width="34" height="20" fill="#fff" stroke="#233a6e" stroke-width="2" transform="rotate(-8 61 60)"/><rect x="72" y="48" width="34" height="20" fill="#f2c230" transform="rotate(6 89 58)"/></svg>
           </div>
           <span class="when">会期中</span>
-          <p>ブースで名刺交換。手応えはあった</p>
+          <p>ブースで名刺交換　手応えはあった</p>
         </div>
         <div class="frame">
           <div class="scene-ill" aria-hidden="true">
             <svg width="150" height="90" viewBox="0 0 150 90" fill="none"><rect x="12" y="30" width="126" height="30" rx="15" fill="#fff" stroke="#1a2233" stroke-width="2.4"/><circle cx="31" cy="44" r="6" stroke="#1a2233" stroke-width="2.4"/><path d="M35 48 L40 53" stroke="#1a2233" stroke-width="2.4" stroke-linecap="round"/><text x="48" y="50" font-size="13" fill="#1a2233" font-family="sans-serif">Taro Yamada</text></svg>
           </div>
           <span class="when">帰国後</span>
-          <p>相手が社長のお名前を検索。情報がない、または日本語だけ</p>
+          <p>相手が社長のお名前を検索　情報がない、または日本語だけ</p>
         </div>
         <div class="frame">
           <div class="scene-ill" aria-hidden="true">
             <svg width="150" height="90" viewBox="0 0 150 90" fill="none"><rect x="30" y="18" width="90" height="56" rx="3" fill="#fff" stroke="#233a6e" stroke-width="2.4"/><path d="M30 24 L75 52 L120 24" stroke="#233a6e" stroke-width="2.4" stroke-linejoin="round"/><circle cx="118" cy="22" r="11" fill="#f2c230"/><text x="113" y="27" font-size="13" font-weight="700" fill="#1a2233" font-family="sans-serif">0</text></svg>
           </div>
           <span class="when">数週間後</span>
-          <p>メールを送っても返信が少ない。話がそこで止まる</p>
+          <p>メールを送っても返信が少ない　話がそこで止まる</p>
         </div>
       </div>
     </div>
@@ -385,7 +387,7 @@
   <section class="mist" id="offer">
     <div class="wrap">
       <h2>お渡しするもの</h2>
-      <p class="kicker">すべて英語原稿に日本語訳を添えてお渡しします。下は架空の精密加工メーカーでの例です。</p>
+      <p class="kicker">すべて英語原稿に日本語訳を添えてお渡しします。<br>下は架空の精密加工メーカーでの例です。</p>
       <div class="board">
         <div class="tile t-head">
           <h3><b>1</b>英語のヘッドライン</h3>
@@ -404,7 +406,7 @@
         <div class="tile t-post">
           <h3><b>4</b>出展告知の投稿 1本</h3>
           <div class="post" lang="en">
-            <div class="who"><div class="avatar">TY</div><div><b>Taro Yamada</b><span>President, ○○ Seiko</span></div></div>
+            <div class="who"><img class="avatar" src="taro.jpg" width="72" height="72" alt=""><div><b>Taro Yamada</b><span>President, ○○ Seiko</span></div></div>
             We'll be at SEMICON Japan next week, showing parts machined to ±2 µm. If precision matters to your tools, come say hello.
             <div class="booth">East Hall 0 / Booth 0000</div>
           </div>
@@ -420,7 +422,7 @@
         <div class="tile t-zoom">
           <h3><b>6</b>反映は画面共有で一緒に</h3>
           <div class="zoom" aria-hidden="true"><div>社長の画面<br>（操作）</div><div>中谷<br>（案内）</div></div>
-          <div class="ja">修正1回つき。ログイン情報はお預かりしません。</div>
+          <div class="ja">修正1回つき　ログイン情報はお預かりしません</div>
         </div>
       </div>
     </div>
@@ -438,8 +440,8 @@
             <div class="reg">通常価格 29,800円</div>
           </div>
           <ul class="terms">
-            <li>納期の目安：お申し込みから7〜10日。会期から逆算して進めます</li>
-            <li>修正1回：初稿から7日以内にまとめてお知らせください。2営業日以内にお返しします</li>
+            <li>納期の目安：お申し込みから7〜10日　会期から逆算して進めます</li>
+            <li>修正1回：初稿から7日以内にまとめてお知らせください　2営業日以内にお返しします</li>
             <li>別の方向での全面的な書き直しは、修正の範囲外としてご相談させてください</li>
             <li>お支払いは、初稿をご確認いただいた後にご請求します</li>
             <li>終了後、5分ほど感想を伺えれば幸いです（公開はしません）</li>
@@ -466,7 +468,7 @@
   <section class="mist">
     <div class="wrap">
       <h2>整える前と後</h2>
-      <p class="kicker">冒頭の名刺と同じ、架空の例です。</p>
+      <p class="kicker">冒頭の名刺と同じ、架空の例です（写真も実在の人物ではありません）。</p>
       <div class="ba">
         <div class="screen before">
           <div class="bar">整える前</div>
@@ -475,14 +477,14 @@
           <div class="body">
             <div class="nm">山田 太郎</div>
             <div class="hl">代表取締役 ／ 株式会社〇〇精工</div>
-            <div class="ab">自己紹介なし。写真なし。英語の情報なし。</div>
+            <div class="ab">自己紹介なし　写真なし　英語の情報なし</div>
             <div class="stats"><span>つながり 3</span><span>投稿 0</span></div>
           </div>
         </div>
         <div class="screen after">
           <div class="bar">整えた後</div>
           <div class="banner"></div>
-          <div class="avatar">TY</div>
+          <img class="avatar" src="taro.jpg" width="72" height="72" alt="">
           <div class="body" lang="en">
             <div class="nm">Taro Yamada</div>
             <div class="hl">President, ○○ Seiko | Micron-level precision machining for semiconductor equipment | Osaka, Japan</div>
@@ -501,7 +503,7 @@
         <p class="nm">中谷 大地</p>
         <p class="en" lang="en">Daichi Nakatani</p>
         <ul class="facts">
-          <li>外資系理系メーカーのケミスト。技術文書の翻訳や情報発信にも携わる</li>
+          <li>外資系理系メーカーのケミスト　技術文書の翻訳や情報発信にも携わる</li>
           <li>展示会の出展側として、海外からの来場者に対応</li>
           <li>CBDスタートアップでR&amp;Dと広報を担当</li>
           <li>米国の大学を卒業。英語での技術コミュニケーションに対応</li>
@@ -514,7 +516,7 @@
   <section class="mist">
     <div class="wrap">
       <h2>会期後も、思い出してもらうために（任意）</h2>
-      <p class="kicker">ご希望があれば、プロフィールを整えた後の広報もお手伝いします。単発だけのご依頼で、もちろん問題ありません。</p>
+      <p class="kicker">ご希望があれば、プロフィールを整えた後の広報もお手伝いします。<br>単発だけのご依頼で、もちろん問題ありません。</p>
       <div class="later">
         <div><b>会期後のフォロー投稿</b>展示会のお礼や、紹介した技術の補足</div>
         <div><b>発表のたびの英語発信</b>新製品・技術発表・登壇に合わせて</div>
