@@ -228,6 +228,12 @@
   .contact h2 { color: #fff; }
   .contact p { color: #ccd5e8; margin: 0 0 8px; }
   .contact .mail { font-size: 15px; color: #fff; margin-top: 14px; }
+  .contact .mailbox { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; padding: 10px 10px 10px 16px; border: 1px solid rgba(255,255,255,.28); border-radius: 6px; background: rgba(255,255,255,.06); max-width: 480px; }
+  .contact .mailbox .addr { font-size: 15px; color: #fff; font-weight: 700; user-select: all; word-break: break-all; flex: 1 1 220px; }
+  .contact .mailbox .copy { font: inherit; font-size: 13px; font-weight: 700; color: var(--ai-deep); background: #fff; border: 0; border-radius: 4px; padding: 8px 14px; cursor: pointer; }
+  .contact .mailbox .copy.done { background: var(--tape); }
+  .contact .mailnote { font-size: 13px; margin-top: 10px; }
+  .contact .mailnote a { color: #fff; }
   .contact .side { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 8px; padding: 22px; font-size: 14px; color: #ccd5e8; }
   .contact .side b { color: #fff; }
   footer { padding: 28px 0 44px; font-size: 13px; color: var(--sub); }
@@ -549,7 +555,11 @@
         <p>展示会名と会期をメールでお知らせください。<br>15分のオンライン相談の候補日をお返しします。</p>
         <p>ご相談は無料で、間に合うかどうかも含めてお答えします。</p>
         <div style="margin-top:26px"><a class="btn" href="mailto:daichi.nakatani.expo@gmail.com?subject=%E5%B1%95%E7%A4%BA%E4%BC%9A%E5%89%8D%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E6%95%B4%E5%82%99%E3%81%AE%E7%9B%B8%E8%AB%87">15分だけ、話を聞いてみる（無料）</a></div>
-        <p class="mail">daichi.nakatani.expo@gmail.com</p>
+        <div class="mailbox">
+          <span class="addr" id="mailAddr">daichi.nakatani.expo@gmail.com</span>
+          <button type="button" class="copy" id="copyMail">アドレスをコピー</button>
+        </div>
+        <p class="mailnote">ボタンでメールが開かない場合は、<span class="nw">アドレスをコピーして</span>お送りください。<br>Gmailをお使いなら<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=daichi.nakatani.expo@gmail.com&amp;su=%E5%B1%95%E7%A4%BA%E4%BC%9A%E5%89%8D%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E6%95%B4%E5%82%99%E3%81%AE%E7%9B%B8%E8%AB%87" target="_blank" rel="noopener">こちらから作成</a>できます。</p>
       </div>
       <div class="side">
         <b>メールに書いていただくと早いこと</b>
@@ -567,5 +577,16 @@
   <div class="wrap">© 中谷 大地　｜　価格は税込です。</div>
 </footer>
 
+<script>
+  (function(){
+    var b=document.getElementById("copyMail"), t=document.getElementById("mailAddr");
+    if(!b||!t) return;
+    function ok(){ b.textContent="コピーしました"; b.classList.add("done"); setTimeout(function(){ b.textContent="アドレスをコピー"; b.classList.remove("done"); },2000); }
+    function fallback(){ var r=document.createRange(); r.selectNodeContents(t); var s=getSelection(); s.removeAllRanges(); s.addRange(r); try{ if(document.execCommand("copy")) ok(); }catch(e){} }
+    b.addEventListener("click", function(){
+      if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(t.textContent.trim()).then(ok, fallback); } else { fallback(); }
+    });
+  })();
+</script>
 </body>
 </html>
