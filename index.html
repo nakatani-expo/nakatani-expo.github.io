@@ -117,6 +117,8 @@
   .pains { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--rule); border: 2px solid var(--rule); }
   .pain { background: #fff; padding: 28px 28px 26px; display: flex; gap: 18px; align-items: flex-start; }
   .pain svg { flex: none; }
+  h2 + .pains { margin-top: 32px; }
+  .pains-close { margin: 28px 0 0; font-size: 17px; font-weight: 700; color: var(--ai); text-align: center; word-break: auto-phrase; }
   .pain p { margin: 0; font-size: 16px; }
 
   /* ===== その後の流れ（横3コマ） ===== */
@@ -292,7 +294,7 @@
       <p class="lead">海外では、名刺よりも<span class="nw">LinkedInのプロフィールが</span><span class="nw">見られています。</span><br>展示会のあとに検索される<span class="nw">英語のプロフィールを、</span><span class="nw">会期前に整えます。</span></p>
       <div class="ctas">
         <a class="btn" href="#contact">15分だけ、話を聞いてみる（無料）</a>
-        <a class="btn ghost" href="#offer">中身と料金を見る</a>
+        <a class="btn ghost" href="#offer">サービス内容と料金を見る</a>
       </div>
     </div>
 
@@ -323,7 +325,6 @@
   <section>
     <div class="wrap">
       <h2>こんなことはありませんか</h2>
-      <p class="kicker">ひとつでも当てはまれば、会期前の準備でできることがあります。</p>
       <div class="pains">
         <div class="pain">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="5" y="9" width="30" height="22" rx="2" stroke="#233a6e" stroke-width="2.4"/><path d="M6 11 L20 22 L34 11" stroke="#233a6e" stroke-width="2.4" stroke-linejoin="round"/><circle cx="32" cy="10" r="6" fill="#f2c230"/><path d="M32 7 v4 M32 13 v.5" stroke="#1a2233" stroke-width="2" stroke-linecap="round"/></svg>
@@ -342,6 +343,7 @@
           <p>次の展示会までに手を打ちたいが<br>何から始めればいいかわからない</p>
         </div>
       </div>
+      <p class="pains-close">ひとつでも当てはまれば、<span class="nw">会期前の準備でできることがあります。</span></p>
     </div>
   </section>
 
