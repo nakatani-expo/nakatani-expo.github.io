@@ -199,12 +199,12 @@
   .stats { display: flex; gap: 14px; font-size: 12px; color: var(--sub); margin-top: 10px; }
 
   /* ===== 担当者 ===== */
-  .me .facts, .me > p { max-width: 820px; }
+  .me > p { max-width: 820px; }
   .me-head { display: flex; align-items: center; gap: 18px; margin: 0 0 22px; }
   .me-head img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--ai-soft); }
   .me .nm { font-family: "BIZ UDPMincho", serif; font-size: 26px; font-weight: 700; margin: 0; line-height: 1.4; }
   .me .en { color: var(--sub); font-size: 14px; margin: 0; }
-  .facts { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 14px; margin: 0 0 18px; padding: 0; list-style: none; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; gap: 14px; margin: 0 0 18px; padding: 0; list-style: none; }
   .facts li { border-left: 3px solid var(--ai); padding: 2px 0 2px 12px; font-size: 14px; line-height: 1.65; }
 
   /* ===== 任意の継続 ===== */
@@ -250,6 +250,7 @@
     .flow { grid-template-columns: 1fr; gap: 28px; }
     .frame, .frame + .frame { padding: 0; border-left: 0; }
     .later { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .wrap { padding: 0 16px; }
@@ -508,10 +509,9 @@
         <div><p class="nm">中谷 大地</p><p class="en" lang="en">Daichi Nakatani</p></div>
       </div>
       <ul class="facts">
-          <li>外資系理系メーカーのケミスト<br>技術文書の翻訳や情報発信にも携わる</li>
-          <li>展示会の出展側として、海外からの来場者に対応</li>
-          <li>CBDスタートアップでR&amp;Dと広報を担当</li>
-          <li>米国の大学を卒業<br><span class="nw">英語での技術コミュニケーションに対応</span></li>
+        <li>展示会の出展側として<br>海外からの来場者に対応</li>
+        <li>外資系理系メーカーのケミスト<br>技術文書の翻訳や情報発信にも携わる</li>
+        <li>米国の大学を卒業<br><span class="nw">英語での技術コミュニケーションに対応</span></li>
       </ul>
       <p>技術の中身を理解したうえで、海外の相手に伝わる英語に置き換えることを大切にしています。</p>
     </div>
