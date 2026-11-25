@@ -158,7 +158,10 @@
   /* ===== 料金（見積書）＋ 進め方 ===== */
   .deal { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
   .deal > div { display: flex; flex-direction: column; }
-  .deal .quote { flex: 1; }
+  .deal .quote, .deal .steps { flex: 1; }
+  .steps { background: #fff; border: 1px solid var(--rule); border-top: 6px solid var(--ai); padding: 28px 30px; display: flex; }
+  .steps .track { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+  .steps .track li { padding-bottom: 0; }
   .quote { background: #fff; border: 1px solid var(--rule); border-top: 6px solid var(--ai); padding: 28px 30px; }
   .quote h3 { font-size: 18px; margin: 0 0 4px; }
   .quote .meta { font-size: 13px; color: var(--sub); margin-bottom: 14px; }
@@ -265,7 +268,7 @@
     .pains { grid-template-columns: 1fr; }
     .pain { padding: 20px; }
     .facts { grid-template-columns: 1fr; }
-    .quote { padding: 22px 18px; }
+    .quote, .steps { padding: 22px 18px; }
     .total .now { font-size: 38px; }
     .dots { gap: 7px; }
     .header-cta { display: none; }
@@ -470,17 +473,13 @@
       </div>
       <div>
         <h2>進め方</h2>
-        <ol class="track">
+        <div class="steps"><ol class="track">
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="1.5" stroke="#233a6e" stroke-width="2"/><path d="M3 5 L10 11 L17 5" stroke="#233a6e" stroke-width="2"/></svg></span><b>お問い合わせ<span class="time">15分</span></b><span>展示会の日程と、<span class="nw">海外で伝えたいことを伺います</span></span></li>
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="11" height="10" rx="1.5" stroke="#233a6e" stroke-width="2"/><path d="M13 9 L18 6 V14 L13 11" stroke="#233a6e" stroke-width="2" stroke-linejoin="round"/></svg></span><b>Zoomで取材<span class="time">30分</span></b><span>技術・製品・社長ご自身のことをお聞きします</span></li>
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 2 H12 L16 6 V18 H5 Z" stroke="#233a6e" stroke-width="2" stroke-linejoin="round"/><path d="M8 10 H13 M8 13 H13" stroke="#233a6e" stroke-width="2"/></svg></span><b>英語原稿をお渡し<span class="time">3営業日以内</span></b><span>日本語訳つき</span></li>
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16 L5 12 L13 4 L16 7 L8 15 Z" stroke="#233a6e" stroke-width="2" stroke-linejoin="round"/></svg></span><b>ご確認・修正1回<span class="time">2営業日以内</span></b><span>まとめてお知らせいただいた点を反映します</span></li>
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10 L8 14 L16 6" stroke="#233a6e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>画面共有で反映<span class="time">30〜45分</span></b><span>社長ご自身の操作で、<span class="nw">プロフィールに反映します</span></span></li>
-        </ol>
-        <div class="trust">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="4" y="10" width="14" height="10" rx="1.5" stroke="#233a6e" stroke-width="2"/><path d="M7 10 V7 a4 4 0 0 1 8 0 V10" stroke="#233a6e" stroke-width="2"/></svg>
-          <div><b>ログイン情報はお預かりしません。</b><br>投稿やつながり申請は<span class="nw">ご本人が行います。</span><br>LinkedInの利用規約に沿って進め、<span class="nw">自動化ツールも使いません。</span></div>
-        </div>
+        </ol></div>
       </div>
     </div>
   </section>
