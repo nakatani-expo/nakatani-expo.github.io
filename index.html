@@ -29,7 +29,7 @@
   }
   img { max-width: 100%; display: block; }
   img.avatar { object-fit: cover; padding: 0; background: #dfe5f1; }
-  p, li, dd, .lead, .kicker, .source, .sample, .ja, .when, summary { word-break: auto-phrase; line-break: strict; }
+  p, li, dd, .lead, .kicker, .source, .sample, .ja, .when, summary, .trust { word-break: auto-phrase; line-break: strict; }
   a { color: var(--ai); }
   a:focus-visible, .btn:focus-visible, summary:focus-visible { outline: 3px solid var(--tape); outline-offset: 3px; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -94,15 +94,13 @@
   .pcard .acts { display: flex; gap: 8px; margin-top: 12px; }
   .pcard .acts span { font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 999px; border: 1.5px solid var(--ai); color: var(--ai); }
   .pcard .acts span:first-child { background: var(--ai); color: #fff; }
-  .arrow-note {
-    margin-top: 18px; font-size: 13px; color: #fff; line-height: 1.5;
-    display: flex; align-items: center; gap: 10px;
-  }
   .stage { min-height: 400px; }
-  .arrow-note svg { flex: none; }
+  .caption { margin: 14px 0 0; font-size: 13px; color: #ccd5e8; line-height: 1.6; text-align: right; }
+  .caption span { display: block; font-size: 11.5px; color: #9fb0d0; }
 
   /* ===== 調査：24社のドット ===== */
-  .research { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  .research { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+  .r-fig .figure { margin-bottom: 14px; }
   .dots { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; max-width: 480px; }
   .dot { aspect-ratio: 1; border-radius: 6px; border: 2px dashed #b3bccb; background: #fff; position: relative; }
   .dot.found { border: 0; background: var(--ai); }
@@ -199,10 +197,11 @@
   .stats { display: flex; gap: 14px; font-size: 12px; color: var(--sub); margin-top: 10px; }
 
   /* ===== 担当者 ===== */
-  .me { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; }
-  .me img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; box-shadow: 14px 14px 0 var(--ai-soft); }
+  .me .facts, .me > p { max-width: 820px; }
+  .me-head { display: flex; align-items: center; gap: 18px; margin: 0 0 22px; }
+  .me-head img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--ai-soft); }
   .me .nm { font-family: "BIZ UDPMincho", serif; font-size: 26px; font-weight: 700; margin: 0; line-height: 1.4; }
-  .me .en { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .me .en { color: var(--sub); font-size: 14px; margin: 0; }
   .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 18px; padding: 0; list-style: none; }
   .facts li { border-left: 3px solid var(--ai); padding: 2px 0 2px 12px; font-size: 14px; line-height: 1.65; }
 
@@ -248,15 +247,12 @@
     .t-head, .t-name, .t-about, .t-post, .t-photo, .t-zoom { grid-column: span 2; }
     .flow { grid-template-columns: 1fr; gap: 28px; }
     .frame, .frame + .frame { padding: 0; border-left: 0; }
-    .me { grid-template-columns: 1fr; gap: 28px; }
-    .me img { max-width: 240px; }
     .later { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .wrap { padding: 0 16px; }
-    .hero { padding-left: 16px; padding-right: 16px; }
+    .hero.wrap { padding: 28px 16px 64px; }
     .stage { min-height: 400px; }
-    .arrow-note { margin-bottom: 28px; }
     .meishi { width: 74%; }
     .pcard { width: 86%; top: 92px; }
     .pains { grid-template-columns: 1fr; }
@@ -282,8 +278,8 @@
 
   <div class="wrap hero">
     <div>
-      <h1>展示会で出会った海外の相手は、帰国後に社長のお名前を検索します。</h1>
-      <p class="lead">そのとき見つかる<span class="nw">「英語の社長プロフィール」を、</span><span class="nw">会期前に整えます。</span><br>国際展示会に出展する中小企業の<span class="nw">社長に向けた、</span><span class="nw">単発のサービスです。</span></p>
+      <h1>展示会の後、<span class="nw">海外の相手は</span><span class="nw">社長の名前を</span><span class="nw">検索します。</span></h1>
+      <p class="lead">そこで見つかる英語のプロフィールを、<span class="nw">会期前に整えます。</span></p>
       <div class="ctas">
         <a class="btn" href="#contact">15分だけ、話を聞いてみる（無料）</a>
         <a class="btn ghost" href="#offer">中身と料金を見る</a>
@@ -308,36 +304,13 @@
         </div>
       </div>
     </div>
-    <div class="arrow-note">
-        <svg width="34" height="20" viewBox="0 0 34 20" fill="none" aria-hidden="true"><path d="M2 16 C 10 4, 22 4, 30 10" stroke="#f2c230" stroke-width="2.5" stroke-linecap="round"/><path d="M24 4 L31 10 L23 14" stroke="#f2c230" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        名刺の先に、英語の受け皿を<br>※ 架空の人物・企業の例です
-      </div>
+    <p class="caption">名刺の先に、英語の受け皿を<span>※ 架空の人物・企業の例です</span></p>
     </div>
   </div>
 </div>
 
 <main>
   <section>
-    <div class="wrap research">
-      <div>
-        <p class="figure">23<small>社 / 24社</small></p>
-        <h2>社長のLinkedInが、公開検索で見つかりませんでした</h2>
-        <p>12月の国際展示会に出展する中小企業24社を調べたところ、18社は英語の会社サイトを持っていました。<br>それでも、社長ご本人の英語の情報が見つかったのは1社だけでした。</p>
-        <p>会社は海外を向いているのに、海外の相手が「誰と話したか」を確かめる手がかりがない。<br>ここに、会期前にできる準備があります。</p>
-        <p class="source">調査：2026年11月、SEMICON Japan 2026・nano tech 2027の出展中小企業24社（抽出）を、ログインせずに公開情報で中谷が確認。<br>アカウントがあっても検索に出ない場合を含みます。</p>
-      </div>
-      <div>
-        <div class="dots" role="img" aria-label="24社のうち、社長のプロフィールが見つかったのは1社">
-          <div class="dot found"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="legend"><span><i class="l1"></i>社長の英語プロフィールあり</span><span><i class="l2"></i>見つからない</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="mist">
     <div class="wrap">
       <h2>こんなことはありませんか</h2>
       <p class="kicker">ひとつでも当てはまれば、会期前の準備でできることがあります。</p>
@@ -362,7 +335,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="mist">
     <div class="wrap">
       <h2>名刺交換の「その後」で、<span class="nw">話が止まる理由</span></h2>
       <p class="kicker">海外のビジネスでは、LinkedInが英語の名刺の役割を果たしています。<br>会社ではなく人と人のつながりから、次の商談が始まります。</p>
@@ -387,6 +360,36 @@
           </div>
           <span class="when">数週間後</span>
           <p>メールを送っても返信が少ない　<span class="nw">話がそこで止まる</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>整える前と後</h2>
+      <p class="kicker">冒頭の名刺と同じ、架空の例です（写真も実在の人物ではありません）。</p>
+      <div class="ba">
+        <div class="screen before">
+          <div class="bar">整える前</div>
+          <div class="banner"></div>
+          <div class="avatar">?</div>
+          <div class="body">
+            <div class="nm">山田 太郎</div>
+            <div class="hl">代表取締役 ／ 株式会社〇〇精工</div>
+            <div class="ab">自己紹介なし　写真なし　英語の情報なし</div>
+            <div class="stats"><span>つながり 3</span><span>投稿 0</span></div>
+          </div>
+        </div>
+        <div class="screen after">
+          <div class="bar">整えた後</div>
+          <div class="banner"></div>
+          <img class="avatar" src="taro.jpg" width="72" height="72" alt="">
+          <div class="body" lang="en">
+            <div class="nm">Taro Yamada</div>
+            <div class="hl">President, ○○ Seiko | Micron-level precision machining for semiconductor equipment | Osaka, Japan</div>
+            <div class="ab">Second-generation owner of a 40-year-old machining shop. Our 18-person team makes parts that hold ±2 µm for chip-making tools. Met at SEMICON Japan? Let's stay in touch.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -467,57 +470,46 @@
         </ol>
         <div class="trust">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="4" y="10" width="14" height="10" rx="1.5" stroke="#233a6e" stroke-width="2"/><path d="M7 10 V7 a4 4 0 0 1 8 0 V10" stroke="#233a6e" stroke-width="2"/></svg>
-          <div><b>ログイン情報はお預かりしません。</b><br>投稿やつながり申請は社長ご本人が行います。<br>LinkedInの利用規約に沿って進め、自動化ツールも使いません。</div>
+          <div><b>ログイン情報はお預かりしません。</b><br>投稿やつながり申請は<span class="nw">社長ご本人が行います。</span><br>LinkedInの利用規約に沿って進め、<span class="nw">自動化ツールも使いません。</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="mist">
-    <div class="wrap">
-      <h2>整える前と後</h2>
-      <p class="kicker">冒頭の名刺と同じ、架空の例です（写真も実在の人物ではありません）。</p>
-      <div class="ba">
-        <div class="screen before">
-          <div class="bar">整える前</div>
-          <div class="banner"></div>
-          <div class="avatar">?</div>
-          <div class="body">
-            <div class="nm">山田 太郎</div>
-            <div class="hl">代表取締役 ／ 株式会社〇〇精工</div>
-            <div class="ab">自己紹介なし　写真なし　英語の情報なし</div>
-            <div class="stats"><span>つながり 3</span><span>投稿 0</span></div>
-          </div>
+    <div class="wrap research">
+      <div class="r-fig">
+        <p class="figure">1<small>社 / 24社</small></p>
+        <div class="dots" role="img" aria-label="24社のうち、社長の英語プロフィールが見つかったのは1社">
+          <div class="dot found"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
         </div>
-        <div class="screen after">
-          <div class="bar">整えた後</div>
-          <div class="banner"></div>
-          <img class="avatar" src="taro.jpg" width="72" height="72" alt="">
-          <div class="body" lang="en">
-            <div class="nm">Taro Yamada</div>
-            <div class="hl">President, ○○ Seiko | Micron-level precision machining for semiconductor equipment | Osaka, Japan</div>
-            <div class="ab">Second-generation owner of a 40-year-old machining shop. Our 18-person team makes parts that hold ±2 µm for chip-making tools. Met at SEMICON Japan? Let's stay in touch.</div>
-          </div>
-        </div>
+        <div class="legend"><span><i class="l1"></i>社長の英語プロフィールあり</span><span><i class="l2"></i>見つからない</span></div>
+      </div>
+      <div>
+        <h2>整えている社長は、<span class="nw">まだほとんどいません</span></h2>
+        <p>12月の国際展示会に出展する中小企業24社を調べました。<br>社長ご本人の英語のプロフィールが見つかったのは、1社だけでした。</p>
+        <p>つまり、会期前に整えておくだけで、<span class="nw">ほかの出展社より</span><span class="nw">先に覚えてもらえます。</span></p>
+        <p class="source">調査：2026年11月、SEMICON Japan 2026・nano tech 2027の出展中小企業24社（抽出）を、ログインせずに公開情報で中谷が確認。<br>アカウントがあっても検索に出ない場合を含みます。</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="wrap me">
-      <img src="daichi.jpg" width="480" height="480" alt="中谷 大地の顔写真">
-      <div>
-        <h2 style="margin-bottom:18px">担当者について</h2>
-        <p class="nm">中谷 大地</p>
-        <p class="en" lang="en">Daichi Nakatani</p>
-        <ul class="facts">
+      <h2>担当者について</h2>
+      <div class="me-head">
+        <img src="daichi.jpg" width="96" height="96" alt="中谷 大地の顔写真">
+        <div><p class="nm">中谷 大地</p><p class="en" lang="en">Daichi Nakatani</p></div>
+      </div>
+      <ul class="facts">
           <li>外資系理系メーカーのケミスト　技術文書の翻訳や情報発信にも携わる</li>
           <li>展示会の出展側として、海外からの来場者に対応</li>
           <li>CBDスタートアップでR&amp;Dと広報を担当</li>
           <li>米国の大学を卒業　<span class="nw">英語での技術コミュニケーションに対応</span></li>
-        </ul>
-        <p>技術の中身を理解したうえで、海外の相手に伝わる英語に置き換えることを大切にしています。</p>
-      </div>
+      </ul>
+      <p>技術の中身を理解したうえで、海外の相手に伝わる英語に置き換えることを大切にしています。</p>
     </div>
   </section>
 
